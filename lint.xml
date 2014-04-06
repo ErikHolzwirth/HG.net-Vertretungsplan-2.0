@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="ContentDescription" severity="ignore">
+        <ignore path="res/layout/fragment_list_entry.xml" />
+    </issue>
+    <issue id="SpUsage">
+        <ignore path="res/layout/dialog_classpicker.xml" />
+        <ignore path="res/layout/fragment_list_entry.xml" />
+        <ignore path="res/layout/fragment_list_entry.xml" />
+        <ignore path="res/layout/fragment_list_entry_data.xml" />
+        <ignore path="res/layout/fragment_list_entry_error.xml" />
+        <ignore path="res/layout/fragment_list_entry_menu.xml" />
+    </issue>
+</lint>

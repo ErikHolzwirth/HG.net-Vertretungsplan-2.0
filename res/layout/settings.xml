@@ -1,0 +1,43 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory
+        android:key="pref_key_user_settings"
+        android:title="Nutzer" >
+
+        <Preference
+            android:key="pref_key_manage_users"
+            android:title="Verwalten der Nutzer" >
+
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetClass="com.erikHolz.vertretungsplan.ManageUsersActivity"
+                android:targetPackage="com.erikHolz.vertretungsplan" />
+        </Preference>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="pref_key_notification_settings"
+        android:title="Hintergrunddaten &amp; Benachrichtigung" >
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_key_backgrounddata"
+            android:summary="Der Download neuer Daten im Hintergrund ist derzeit deaktiviert."
+            android:title="Hintergruddaten" />
+
+        <ListPreference
+            android:dependency="pref_key_backgrounddata"
+            android:entries="@array/pref_refreshIntervall"
+            android:entryValues="@array/pref_refreshIntervall_Values"
+            android:key="pref_key_refresh_intervall"
+            android:summary="Derzeit werden alle 30 Minuten neue Daten bezogen."
+            android:title="Aktualisierungsintervall" />
+
+        <CheckBoxPreference
+            android:dependency="pref_key_backgrounddata"
+            android:key="pref_key_notification"
+            android:summary="Die Anzeige von Benachrichtigungen ist momentan nicht aktiv."
+            android:title="Benachrichtigung" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

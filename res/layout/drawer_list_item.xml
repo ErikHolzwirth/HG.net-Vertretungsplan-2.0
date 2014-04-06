@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <!-- Icon -->
+
+    <ImageView
+        android:id="@+id/drawer_icon"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp" />
+
+    <!-- Name des Eintrags -->
+
+    <TextView
+        android:id="@+id/drawer_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/drawer_icon"
+        android:textSize="14dp" />
+
+    <!-- Zähler (für Vertretungen) -->
+
+    <TextView
+        android:id="@+id/drawer_counter"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rectangle"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:textSize="10dp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="actionbar_text"				>#DBDBDB</color>
+    <color name="actionbar_background"			>#1C1E20</color>
+    
+    <color name="activity_background"			>#27292A</color>
+    
+    <color name="dialog_background"				>#4A4A4A</color>
+    <color name="dialog_header"					>#DBDBDB</color>
+    <color name="dialog_header_background"		>#3B3B3B</color>
+    
+    <color name="list_background"				>#1C1E20</color>
+    <color name="list_background2"				>#4A4A4A</color>
+    <color name="list_divider"					>#27292A</color>
+	<color name="list_green"					>#79AE41</color>       
+	<color name="list_red"						>#E54D46</color>
+	<color name="list_text"						>#DBDBDB</color>
+          
+    <color name="drawer_background"				>#27292A</color>
+    <color name="drawer_divider"				>#DBDBDB</color>    
+    <color name="drawer_font"					>#DBDBDB</color>   
+    
+<!--
+    
+    <color name="actionbar_text"				>#FFFFFF</color>
+    <color name="actionbar_background"			>#467DBD</color>
+    
+    <color name="activity_background"			>#E6E6E6</color>
+    
+    <color name="dialog_background"				>#4A4A4A</color>
+    <color name="dialog_header"					>#DBDBDB</color>
+    <color name="dialog_header_background"		>#3B3B3B</color>
+    
+    <color name="list_background"				>#FFFFFF</color>
+    <color name="list_background2"				>#4A4A4A</color>
+    <color name="list_divider"					>#E6E6E6</color>
+	<color name="list_green"					>#72AAE7</color>       
+	<color name="list_red"						>#72AAE7</color>
+	<color name="list_text"						>#868686</color>
+          
+	<color name="drawer_background"				>#27292A</color>
+    <color name="drawer_divider"				>#DBDBDB</color>    
+    <color name="drawer_font"					>#DBDBDB</color>
+   
+-->
+    
+</resources>
