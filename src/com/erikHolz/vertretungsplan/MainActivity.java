@@ -156,6 +156,9 @@ public class MainActivity extends Activity implements ThreadListener,
 			// der Vergleich erfolgt durch die Konvertierung des Strings in eine
 			// Zahl, wobei der 16. Februar 2014 kleiner als der 17. Februar 2014
 			// ist, da: 20140216 < 20140217
+			
+			int str = db.getStatus();
+			
 			if (db.getStatus() < Integer.parseInt(today.replace(" ", ""))) {
 
 				dateDatabase = new String[2];
@@ -423,7 +426,18 @@ public class MainActivity extends Activity implements ThreadListener,
 		Calendar.getInstance();
 		cal.setTime(new Date());
 
-		String time = String.valueOf(cal.get(Calendar.HOUR_OF_DAY)) + ":" + String.valueOf(cal.get(Calendar.MINUTE));
+		String time = "";
+		if (cal.get(Calendar.HOUR_OF_DAY) < 10)
+			time += "0" + String.valueOf(cal.get(Calendar.HOUR_OF_DAY));
+		else
+			time += String.valueOf(cal.get(Calendar.HOUR_OF_DAY));
+
+		time += ":";
+		
+		if (cal.get(Calendar.MINUTE) < 10)
+			time += "0" + String.valueOf(cal.get(Calendar.MINUTE));
+		else
+			time += String.valueOf(cal.get(Calendar.MINUTE));
 		
 		SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME,
 				0).edit();
