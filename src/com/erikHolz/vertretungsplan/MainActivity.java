@@ -423,7 +423,7 @@ public class MainActivity extends Activity implements ThreadListener,
 		Calendar.getInstance();
 		cal.setTime(new Date());
 
-		String time = String.valueOf(cal.get(Calendar.HOUR)) + ":" + String.valueOf(cal.get(Calendar.MINUTE));
+		String time = String.valueOf(cal.get(Calendar.HOUR_OF_DAY)) + ":" + String.valueOf(cal.get(Calendar.MINUTE));
 		
 		SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME,
 				0).edit();
