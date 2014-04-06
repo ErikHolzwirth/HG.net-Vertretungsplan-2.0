@@ -587,7 +587,7 @@ public class MainActivity extends Activity implements ThreadListener,
 								public void onClick(DialogInterface dialog,
 										int id) {
 									Intent browserIntent = new Intent(Intent.ACTION_VIEW,
-											Uri.parse("http://www.humgym.net/"));
+											Uri.parse("https://github.com/ErikHolzwirth/HG.net-Vertretungsplan-2.0"));
 									startActivity(browserIntent);
 								}
 							});
