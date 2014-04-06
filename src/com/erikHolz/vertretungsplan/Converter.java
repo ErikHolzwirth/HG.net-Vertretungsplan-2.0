@@ -393,7 +393,7 @@ public class Converter {
 					if ((buffer1[0].equals("11") || buffer1[0]
 							.equals("12"))
 							&& (!splittedLine[2].equals("de")
-									&& !splittedLine[2].equals("ma") && !splittedLine[2]
+									&& !splittedLine[2]
 										.equals("en")))
 						forAllClasses = true;
 

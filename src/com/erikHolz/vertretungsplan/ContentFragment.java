@@ -56,7 +56,7 @@ public class ContentFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		final View rootView = inflater.inflate(R.layout.fragment_content, null);
-
+			
 		// erstellen des Fragments zur Darstellung von Vertretungen, handelt es
 		// sich um einen Vertretungsplan für den aktuellen Tag (ARG_MODE = 1)
 		// oder den kommenden Tag (ARG_MODE = 2)

@@ -96,6 +96,8 @@ public class MainActivity extends Activity implements ThreadListener,
 
 		// Laden des Layouts
 		setContentView(R.layout.activity_main);
+		
+		lockScreenOrientation();
 
 		// SharedPreferences werden genutzt, um Einstellungen in Form primitiver
 		// Datentypen (wie z.B. int, boolean, long, ..) zu speichern
@@ -363,6 +365,10 @@ public class MainActivity extends Activity implements ThreadListener,
 
 		mDrawerTitles.add(7, new DrawerEntry(R.drawable.ic_drawer_info_default,
 				"Info", ""));
+		
+		SharedPreferences pref = getSharedPreferences(PREFS_NAME, 0);
+		
+		((TextView) findViewById(R.id.last_update)).setText("zuletzt aktualisiert um " + pref.getString("lastUpdate", "0:00"));
 
 		mListAdapterDrawer.notifyDataSetChanged();
 	}
@@ -412,6 +418,18 @@ public class MainActivity extends Activity implements ThreadListener,
 		// ein nun eventuell verändertes Datum wird aus der Datenbank geladen
 		dateDatabase = db.getDates();
 
+		// Datum der Aktualisierung speichern
+		Calendar cal = new GregorianCalendar();
+		Calendar.getInstance();
+		cal.setTime(new Date());
+
+		String time = String.valueOf(cal.get(Calendar.HOUR)) + ":" + String.valueOf(cal.get(Calendar.MINUTE));
+		
+		SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME,
+				0).edit();
+		editor.putString("lastUpdate", time);
+		editor.commit();
+		
 		// die Bezeichner im NavigationDrawer werden nun wieder entsprechend des
 		// jeweiligen Datums gesetzt
 		setDrawerTitles();
