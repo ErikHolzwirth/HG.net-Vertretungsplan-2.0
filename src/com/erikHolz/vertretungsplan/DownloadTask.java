@@ -274,17 +274,20 @@ public class DownloadTask {
 
 	public void downloadFiles() {
 
-		for (int i = 0; i < 4; i++)
+		for (int i = 0; i < 4; i++) {
+			if(validLinkname[i] == null) 
+				validLinkname[i] = "";
 			if (!(validLinkname[i].matches("")))
 				fileAmount++;
-
+		}
+		
+		// speichert die Dateinamen der heruntergeladenen PDFs
+		// die Namensgebung ist hierbei YYYY MM DD
+		fileDestination = new String[4];
+			
 		// Eingangsbedingung, ob wenigstens eine Datei besteht, um Speicher
 		// zu sparen
 		if (fileAmount > 0) {
-
-			// speichert die Dateinamen der heruntergeladenen PDFs
-			// die Namensgebung ist hierbei YYYY MM DD
-			fileDestination = new String[4];
 
 			try {
 				for (int i = 0; i < 4; i++) {
@@ -379,9 +382,13 @@ public class DownloadTask {
 
 		fileAmount = 0;
 
-		for (int i = 0; i < 4; i++)
+		for (int i = 0; i < 4; i++) {
+			if (fileDestination[i] == null)
+				fileDestination[i] = "";
+
 			if (!(fileDestination[i].matches("")))
 				fileAmount++;
+		}
 
 		for (int i = 0; i < 4; i++) {
 			if (!(fileDestination[i].matches(""))) {

@@ -29,13 +29,13 @@ public class Data {
 
 	private static final String[] shortNames = { "ma", "ph", "ch", "bi", "as",
 			"if", "de", "en", "fr", "la", "ru", "sn", "ge", "sk", "wr", "et",
-			"mu", "ku", "sp", "mnt", "wu" };
+			"mu", "ku", "sp", "mnt", "wu", "GG" };
 
 	private static final String[] longNames = { "Mathematik", "Physik",
 			"Chemie", "Biologie", "Astronomie", "Informatik", "Deutsch",
 			"Englisch", "Französisch", "Latein", "Russisch", "Spanisch",
 			"Geschichte", "Sozialkunde", "Wirtschaft", "Ethik", "Musik",
-			"Kunst", "Sport", "MNT", "wahlunterricht" };
+			"Kunst", "Sport", "MNT", "Wahlunterricht", "Geografie" };
 
 	public Data(int id, String datum, String klasse, String stunde,
 			String fach, String raum, String ausfall, String vertretung) {
@@ -45,7 +45,7 @@ public class Data {
 		this.stunde = stunde;
 		
 		int i = 0;
-		while(!(fach.equals(shortNames[i])) && i < 20) 
+		while(!(fach.equals(shortNames[i])) && i < 21) 
 			i++;
 		
 		if (!(fach.equals(shortNames[i]))) 

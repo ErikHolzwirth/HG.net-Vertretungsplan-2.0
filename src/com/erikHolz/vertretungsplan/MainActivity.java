@@ -156,9 +156,7 @@ public class MainActivity extends Activity implements ThreadListener,
 			// der Vergleich erfolgt durch die Konvertierung des Strings in eine
 			// Zahl, wobei der 16. Februar 2014 kleiner als der 17. Februar 2014
 			// ist, da: 20140216 < 20140217
-			
-			int str = db.getStatus();
-			
+						
 			if (db.getStatus() < Integer.parseInt(today.replace(" ", ""))) {
 
 				dateDatabase = new String[2];
@@ -240,7 +238,7 @@ public class MainActivity extends Activity implements ThreadListener,
 		mEdgeSize.setAccessible(true);
 		int edge = mEdgeSize.getInt(draggerObj);
 
-		mEdgeSize.setInt(draggerObj, edge * 15);
+		mEdgeSize.setInt(draggerObj, edge * 12);
 		mMenu = (LinearLayout) findViewById(R.id.menu);
 
 		// Öffnen des Drawers verändert ActionBar

@@ -18,7 +18,6 @@
 package com.erikHolz.vertretungsplan.listviewadapters;
 
 import android.content.Context;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,12 +28,12 @@ import com.erikHolz.vertretungsplan.R;
 
 public class ListAdapterError extends ArrayAdapter<String> {
 	private final Context context;
-	boolean databaseEmpty;
+	int errorType;
 
-	public ListAdapterError(Context context, boolean databaseEmpty) {
+	public ListAdapterError(Context context, int errorType) {
 		super(context, R.layout.fragment_list_entry_error, new String[]{"1"});
 		this.context = context;
-		this.databaseEmpty = databaseEmpty;
+		this.errorType = errorType;
 	}
 
 	@Override
@@ -49,16 +48,23 @@ public class ListAdapterError extends ArrayAdapter<String> {
 		TextView hinweis1 = (TextView) entry.findViewById(R.id.hinweis1);
 		TextView hinweis2 = (TextView) entry.findViewById(R.id.hinweis2);
 
-		if (databaseEmpty) {
+		if (errorType == 1) {
 		fehler.setText("Keine Daten!");
 		hinweis1.setText("Versuchen sie, die Daten zu aktualisieren!");
 		hinweis2.setText("Überprüfen sie ihre Internetverbindung!");
 		}
-		else
-			fehler.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 30);
+		
+		else if (errorType == 2) {
 			fehler.setText("Keine Vertretungen!");
 			hinweis2.setText("Für den Tag sind keine Vertretungen notwendig!");
 			hinweis1.setVisibility(View.GONE);	
+		}
+		
+		else if (errorType == 3) {
+			fehler.setText("Kein Essensplan!");
+			hinweis1.setText("Es existieren keine Daten für den Essensplan!");
+			hinweis2.setText("Vermutlich wurde die LIFT-Seite nicht aktualisert!");
+		}
 		
 		
 		return entry;

@@ -93,17 +93,17 @@ public class ContentFragment extends Fragment {
 			else if (getArguments().getInt(ARG_MODE) == 1) {
 				if (db.isEmpty(true))
 					adapter = new ListAdapterError(getActivity()
-							.getBaseContext(), true);
+							.getBaseContext(), 1);
 				else
 					adapter = new ListAdapterError(getActivity()
-							.getBaseContext(), false);
+							.getBaseContext(), 2);
 			} else {
 				if (db.isEmpty(false))
 					adapter = new ListAdapterError(getActivity()
-							.getBaseContext(), true);
+							.getBaseContext(), 1);
 				else
 					adapter = new ListAdapterError(getActivity()
-							.getBaseContext(), false);
+							.getBaseContext(), 2);
 			}
 
 			// das Listenelement wird im Layout des Fragments gesucht
@@ -164,7 +164,7 @@ public class ContentFragment extends Fragment {
 						amount, getArguments().getInt(ARG_MODE), menu);
 			else
 				adapter = new ListAdapterError(getActivity().getBaseContext(),
-						true);
+						3);
 
 			ListView listView = (ListView) rootView.findViewById(R.id.listview_content);
 			listView.setAdapter(adapter);

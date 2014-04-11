@@ -19,6 +19,8 @@ package com.erikHolz.vertretungsplan.database;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import com.erikHolz.vertretungsplan.Constants;
@@ -416,6 +418,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		String selectQuery;
 		String result[] = new String[2];
 		String[] buffer = new String[3];
+		
+		Calendar cal = new GregorianCalendar();
+		Calendar.getInstance();
+		cal.setTime(new Date());
 
 		// Datum für den ersten Tag bestimmen
 		selectQuery = "SELECT * FROM " + TABLE_TODAY;
@@ -425,20 +431,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 		Cursor c = db.rawQuery(selectQuery, null);
 
+		// Eintrag vorhanden, Datum wird übernommen
 		if (c.moveToFirst()) {
 			result[0] = c.getString(c.getColumnIndex(KEY_DATUM));
 			buffer = result[0].split(" ");
 		}
-		else {
-			Calendar cal = Calendar.getInstance();
-			cal.set(Calendar.YEAR, Integer.parseInt(buffer[0]));
-			cal.set(Calendar.MONTH, Integer.parseInt(buffer[1]));
-			cal.set(Calendar.DATE, Integer.parseInt(buffer[2]));
-			cal.add(Calendar.DATE, 1);
+		
+		// kein Eintrag, Datum wird erstellt
+		else {			
+			if(cal.get(Calendar.DAY_OF_WEEK) == 7)
+				cal.add(Calendar.DATE, 2);
+			else if (cal.get(Calendar.DAY_OF_WEEK) == 0)
+				cal.add(Calendar.DATE, 1);
 
 			buffer[0] = String.valueOf(cal.get(Calendar.YEAR));
 			buffer[1] = String.valueOf(cal.get(Calendar.MONTH));
 			buffer[2] = String.valueOf(cal.get(Calendar.DATE));
+			
+			cal.add(Calendar.DATE, 1);
 		}
 		
 		if (buffer[2].charAt(0) == '0') 
@@ -463,11 +473,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		if (result[1] != null)
 			buffer = result[1].split(" ");
 		else {
-			Calendar cal = Calendar.getInstance();
-			cal.set(Calendar.YEAR, Integer.parseInt(buffer[0]));
-			cal.set(Calendar.MONTH, Integer.parseInt(buffer[1]));
-			cal.set(Calendar.DATE, Integer.parseInt(buffer[2]));
-			cal.add(Calendar.DATE, 1);
+			if(cal.get(Calendar.DAY_OF_WEEK) == 7)
+				cal.add(Calendar.DATE, 2);
+			else if (cal.get(Calendar.DAY_OF_WEEK) == 0)
+				cal.add(Calendar.DATE, 1);
 
 			buffer[0] = String.valueOf(cal.get(Calendar.YEAR));
 			buffer[1] = String.valueOf(cal.get(Calendar.MONTH));

@@ -383,20 +383,19 @@ public class Converter {
 					}
 				}
 
-				// Überprüfung, ob der Klassenname Buchstaben entält,
-				// z.B. 12/A
+				// Überprüfung, ob der Klassenname 11 oder 12 für die Kursstufe
+				// enthält
 				else {
 					String[] buffer1 = splittedLine[0].split("/");
 
+					// aufgrund der Planstruktur, werden Vertretungen der Kursstufe
+					// für alle Kurse angezeigt
 					boolean forAllClasses = false;
-
 					if ((buffer1[0].equals("11") || buffer1[0]
-							.equals("12"))
-							&& (!splittedLine[2].equals("de")
-									&& !splittedLine[2]
-										.equals("en")))
+							.equals("12")))
 						forAllClasses = true;
 
+					// ja, es ist ein Eintrag für die Kursstufe
 					if (forAllClasses) {
 						// intI < 4 bedeutet, dass der Eintrag für 3 Klassen
 						// also "12/1", "12/2" und "12/3" angelegt wird
